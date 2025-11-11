@@ -14,13 +14,13 @@ pipeline{
         }
         stage("Installing dependencies"){
             steps{
-                bat '${env.PYTHON} -m pip install -r requirements.txt'
+                bat '%PYTHON% -m pip install -r requirements.txt'
             }
         }
         stage("extracting data from api"){
             steps{
                 bat """
-                SET API_TOKEN=%API_TOKEN%
+                set API_TOKEN=%API_TOKEN%
                 %PYTHON% extract.py
                 """
             }
