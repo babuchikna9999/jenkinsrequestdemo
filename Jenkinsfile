@@ -13,7 +13,7 @@ pipeline{
         }
         stage("Installing dependencies"){
             steps{
-                bat "pip install -r requirements.txt"
+                bat "${env.PYTHON} -m pip install -r requirements.txt"
             }
         }
         stage("extracting data from api"){
