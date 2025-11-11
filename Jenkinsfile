@@ -19,10 +19,10 @@ pipeline{
         }
         stage("extracting data from api"){
             steps{
-                bat '''
+                bat """
                 SET API_TOKEN=%API_TOKEN%
                 %PYTHON% extract.py
-                '''
+                """
             }
         }
     }
