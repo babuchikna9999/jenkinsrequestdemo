@@ -20,8 +20,8 @@ pipeline{
         stage("extracting data from api"){
             steps{
                 bat '''
-                set API_TOKEN=${env.API_TOKEN}
-                ${env.PYTHON} extract.py
+                SET API_TOKEN=%API_TOKEN%
+                %PYTHON% extract.py
                 '''
             }
         }
