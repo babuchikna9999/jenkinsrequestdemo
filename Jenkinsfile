@@ -3,6 +3,7 @@ pipeline{
 
     environment{
         PYTHON="C:\\Users\\Lenovo\\AppData\\Local\\Programs\\Python\\Python314\\python.exe"
+        API_TOKEN=credentials("API_TOKEN")
     }
 
     stages{
@@ -13,12 +14,15 @@ pipeline{
         }
         stage("Installing dependencies"){
             steps{
-                bat "${env.PYTHON} -m pip install -r requirements.txt"
+                bat '${env.PYTHON} -m pip install -r requirements.txt'
             }
         }
         stage("extracting data from api"){
             steps{
-                bat "${env.PYTHON} extract.py"
+                bat '''
+                set API_TOKEN=${env.API_TOKEN}
+                ${env.PYTHON} extract.py
+                '''
             }
         }
     }
