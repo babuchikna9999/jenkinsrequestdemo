@@ -27,7 +27,7 @@ pipeline{
         success{
             echo "pipeline executed successfully..."
         }
-        failed{
+        failure{
             echo "something wents wrong..."
         }
         always{
