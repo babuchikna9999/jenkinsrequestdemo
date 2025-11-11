@@ -10,5 +10,6 @@ if TOKEN == "1234":
     df=pd.DataFrame(data)
     df=df[["id","name"]]
     print(df)
+    print(TOKEN)
 else:
     print("invalid")
